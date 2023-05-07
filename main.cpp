@@ -13,7 +13,7 @@ int main(){
 void menu(int cantUsuarios){
     int opcion = 0;
     do{
-        cout<<"Hola, bienvenido!!!"<<endl;
+        cout<<"!---Hola, bienvenido---!"<<endl;
         cout<<"1. Agregar Usuarios"<<endl;
         cout<<"2. Ver Usuarios"<<endl;
         cout<<"3. Editar Usuarios"<<endl;
@@ -37,11 +37,13 @@ void menu(int cantUsuarios){
             eliminarUsuario();
             break;
         case 5:
-            cout<<"Chao, chao"<<endl;
+            cout<<"Chao, chao!!!"<<endl;
+            cout<<"-------------"<<endl;
             break;
         
         default:
             cout<<"Equivocado, intente de nuevo"<<endl;
+            cout<<"----------------------------"<<endl;
             break;
         }
     }while(opcion != 5);

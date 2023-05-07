@@ -29,7 +29,8 @@ void agregarUsuario(int& cantUsuario){
     FILE *archi; 
     archi = fopen("usuarios.bin","a");
     Usuario nuevoUsuario;
-    cout<<"Registro"<<endl;
+    cout<<"-----*******************-----"<<endl;
+    cout<<"-----Registro de Usuario-----"<<endl;
     cout<<"Digite el nombre de usuario"<<endl;
     cin>>nuevoUsuario.nombre;
     if(buscarUsuario(nuevoUsuario.nombre)){
@@ -52,6 +53,8 @@ void agregarUsuario(int& cantUsuario){
 //Editar Usuario
 void editarUsuario(){
     char nombre[30];
+    cout<<"-----**************-----"<<endl;
+    cout<<"-----Editar Usuario-----"<<endl;
     cout<<"Que usuario deseas editar?"<<endl;
     cin>>nombre;
 
@@ -103,8 +106,10 @@ void editarUsuario(){
 
 //Ver todos los usuarios
 void verUsuarios(int cantUsuarios){
+    cout<<"-----*****************-----"<<endl;
+    cout<<"-----Lista de Usuarios-----"<<endl;
     if(cantUsuarios==0){
-        cout<<"Aun no existen usuarios"<<endl;
+        cout<<"-!Aun no existen usuarios!-"<<endl;
         cout<<endl;
     }else{
         FILE *file;
@@ -130,6 +135,8 @@ void verUsuarios(int cantUsuarios){
 
 //Eliminar Usuario
 void eliminarUsuario(){
+    cout<<"-----****************-----"<<endl;
+    cout<<"-----Eliminar usuario-----"<<endl;
     char nombre[30];
     cout<<"Que usuario deseas eliminar?"<<endl;
     cin>>nombre;
