@@ -67,19 +67,26 @@ void editarUsuario(){
             if(!feof(usuarios)){
                 if(strcmp(temp.nombre,nombre)!=0){
                     fwrite(&temp,sizeof(Usuario),1,temporalUsuario);
+                    fflush(stdin);
                 }
                 else{
                     Usuario usuarioEditado;
-                    cout<<"Escribe su nuevo nombre. Actual:("<<temp.nombre<<")"<<endl;
-                    cin>>usuarioEditado.nombre;
-                    cout<<"Escriba su nueva password. Actua:("<<temp.pass<<")"<<endl;
-                    cin>>usuarioEditado.pass;
-                    cout<<"Escriba su nueva edad. Actua:("<<temp.edad<<")"<<endl;
-                    cin>>usuarioEditado.edad;
+                    bool bandera;
+                    do{
+                        cout<<"Escribe su nuevo nombre. Actual:("<<temp.nombre<<")"<<endl;
+                        cin>>usuarioEditado.nombre;
+                        bandera = buscarUsuario(usuarioEditado.nombre);
+                        if(!bandera){
+                            cout<<"Escriba su nueva password. Actual:("<<temp.pass<<")"<<endl;
+                            cin>>usuarioEditado.pass;
+                            cout<<"Escriba su nueva edad. Actual:("<<temp.edad<<")"<<endl;
+                            cin>>usuarioEditado.edad;
                     
-                    fwrite(&usuarioEditado,sizeof(Usuario),1,temporalUsuario);
-                    cout<<"Usuario modificado"<<endl;
-                    break;
+                            fwrite(&usuarioEditado,sizeof(Usuario),1,temporalUsuario);
+                            cout<<"Usuario modificado"<<endl;
+                            break;
+                        }
+                    }while(bandera);
                 }
             }
         }   
