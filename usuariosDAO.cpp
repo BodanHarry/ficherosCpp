@@ -32,15 +32,21 @@ void agregarUsuario(int& cantUsuario){
     cout<<"Registro"<<endl;
     cout<<"Digite el nombre de usuario"<<endl;
     cin>>nuevoUsuario.nombre;
-    cout<<"Digite la password"<<endl;
-    cin>>nuevoUsuario.pass;
-    cout<<"Digite tu edad"<<endl;
-    cin>>nuevoUsuario.edad;
-
-    fwrite(&nuevoUsuario, sizeof(Usuario),1,archi);
-    fflush(stdin);
-    fclose(archi);  
-    cantUsuario++;
+    if(buscarUsuario(nuevoUsuario.nombre)){
+        cout<<"------------------------------------------------"<<endl;
+        cout<<"El nombre ya existe, intenta nuevamente con otro"<<endl;
+        cout<<"------------------------------------------------"<<endl;
+        agregarUsuario(cantUsuario);
+    }else{
+        cout<<"Digite la password"<<endl;
+        cin>>nuevoUsuario.pass;
+        cout<<"Digite tu edad"<<endl;
+        cin>>nuevoUsuario.edad;
+        fwrite(&nuevoUsuario, sizeof(Usuario),1,archi);
+        fflush(stdin);
+        fclose(archi);  
+        cantUsuario++;
+    }
 }
 
 //Editar Usuario
